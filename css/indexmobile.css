@@ -11,7 +11,7 @@
 
 body {
   width: 100%;
-  background-image: url('../imgs/fondo.JPG');
+  background-image: url('../imgs/fondo.png');
   background-size: 100%;
   background-attachment: fixed;
   background-repeat:initial;
@@ -238,7 +238,7 @@ h1, h2, h3, p, a, li {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1.5rem;
- 
+
   background-color: rgb(29, 30, 36) !important; /* Fondo oscuro traslúcido */
 }
 
