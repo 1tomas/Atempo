@@ -1,0 +1,280 @@
+/* -------------------- */
+    /* 1. RESET Y BASE      */
+    /* -------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  width: 100%;
+  background-image: url('../imgs/fondo.JPG');
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat:initial;
+  /* Tipografía base legible en móviles */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita scrolls laterales accidentales */
+  
+}
+
+h1, h2, h3, p, a, li {
+  color: #fff;
+}
+
+/* -------------------- */
+/* 2. NAVBAR (Bootstrap)*/
+/* -------------------- */
+.custom-navbar {
+  max-width: 100%;
+  background: #1d1e24 !important;
+  backdrop-filter: blur(50px);
+}
+
+/* Espacio para que el contenido no quede debajo de la navbar fija */
+#home {
+  padding-top: 85px; 
+}
+
+
+.slider-container {
+  position: relative;
+  height: 570px; /* Altura para celular */
+  overflow: hidden;
+  background: #1d1e24;
+  width: 100%; /* Ocupa exactamente el ancho de la pantalla visual */
+  margin-left: 0;
+  margin-right: 0;
+  left: 0;
+}
+
+.fade-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* El efecto de desvanecimiento */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.fade-item.active {
+  opacity: 1;
+  z-index: 10;
+}
+
+.fade-item img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    .caption {
+    padding: 5px;
+    color: white;
+    }
+
+
+
+/* -------------------- */
+/* CARROUSEL TÁCTIL (Móvil) */
+/* -------------------- */
+.proyectos-carrousel {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vw; /* Altura cuadrada en móvil para que destaque */
+  max-height: 500px;
+}
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial para que la imagen no se deforme */
+}
+
+/* Superposición de Texto */
+.slide-content {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 10px;
+  background: linear-gradient(to top, #1d1e24, transparent); /* Degradado para legibilidad */
+  color: white;
+  text-align: match-parent;
+  z-index: 10;
+}
+
+.slide-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Personalizar los puntos de paginación (opcional) */
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 1;
+}
+    
+/* -------------------- */
+/* FOOTER MÓVIL         */
+/* -------------------- */
+.footer {
+  padding: 3rem 1rem; /* Espaciado interno para que no toque los bordes */
+  background-color: #1d1e24;
+  color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column; /* Apilado vertical para celular */
+  align-items: center;    /* Centra todo el contenido */
+  gap: 3rem;
+  width: 100%;
+}
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los iconos de redes sociales */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.footer-social-link i {
+  font-size: 1.8rem; /* Un poco más chico para mobile */
+}
+
+/* -------------------- */
+/* UBICACIÓN Y MAPA     */
+/* -------------------- */
+.footer-location {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el texto de ubicación */
+  text-align: center;
+}
+
+.location-map {
+  width: 100%;
+  max-width: 300px; /* Limitamos el ancho del mapa en celular */
+  margin-top: 1rem;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 200px; /* Altura más discreta para móviles */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* -------------------- */
+/* BOTÓN WHATSAPP FIJO  */
+/* -------------------- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  z-index: 9999; /* Para que siempre esté por encima de todo */
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:active {
+  transform: scale(0.9); /* Efecto de pulsación al tocar en el cel */
+}
+/* -------------------- */
+/* SECCIÓN FAQ          */
+/* -------------------- */
+.faq-section {
+  padding: 60px 20px;
+  background-color: transparent; /* Se ve el fondo fijo del body */
+}
+
+.faq-section h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+ 
+  
+}
+
+.accordion-item {
+  background-color: rgb(29, 30, 36) !important; /* Fondo oscuro traslúcido */
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-bottom: 5px;
+}
+
+.accordion-button {
+  background-color: transparent !important;
+  color: #fff !important;
+  font-weight: 500;
+  padding: 20px;
+  box-shadow: none !important;
+}
+
+/* El ícono de la flecha en blanco */
+.accordion-button::after {
+  filter: invert(1);
+}
+
+.accordion-button:not(.collapsed) {
+  color: #25D366 !important; /* Color de énfasis (podés usar el de Atempo) */
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.accordion-body {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.accordion-body ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
