@@ -1,160 +1,398 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atempo - Muebles a Medida</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<!-- ...existing code... -->
 <body>
-  
-  <header>      
-<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#home">
-      <img src="imgs/Atempo circulos sin fondo-02.png" alt="Atempo Logo" style="height:60px; margin-right:16px;">
+
+<!-- ============================================================ -->
+<!-- TOOLBAR / NAVBAR (fixed top)                                  -->
+<!-- ============================================================ -->
+<header>
+  <nav class="win-toolbar" id="home" aria-label="Barra de navegacion principal">
+    <!-- Brand -->
+    <div class="win-toolbar-brand">
+      <img src="imgs/Atempo circulos sin fondo-02.png" alt="Atempo Logo" style="height:30px; filter: invert(1) brightness(0);">
+      <span class="win-toolbar-label">Atempo Muebles</span>
+    </div>
+
+    <div class="win-taskbar-sep" aria-hidden="true"></div>
+
+    <!-- Toolbar nav buttons -->
+    <nav class="win-nav-links" aria-label="Secciones del sitio">
+      <a href="#home" class="win-nav-btn">&#127968; Inicio</a>
+      <a href="#projects" class="win-nav-btn">&#128193; Proyectos</a>
+      <a href="#info" class="win-nav-btn">&#8505; Informacion</a>
+      <button class="win-nav-btn" onclick="toggleContact()" aria-expanded="false" id="contact-toggle">&#128222; Contacto</button>
+    </nav>
+
+    <div class="win-taskbar-sep" aria-hidden="true"></div>
+
+    <!-- Address bar -->
+    <div class="win-address-bar">
+      <span style="font-size:11px; font-family:Tahoma,sans-serif; white-space:nowrap;">Direccion:</span>
+      <input type="text" class="win-address-input" value="http://www.atempo.com.ar/" readonly aria-label="URL del sitio">
+      <button class="win-go-btn" onclick="window.scrollTo(0,0)">Ir</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================================ -->
+<!-- MARQUEE BANNER                                                -->
+<!-- ============================================================ -->
+<div class="win-marquee-bar" role="marquee" aria-label="Anuncio">
+  <marquee scrollamount="3">
+    &#9733; Bienvenidos a Atempo &mdash; Muebles a medida en Pinamar y alrededores &nbsp;&nbsp;&nbsp;
+    &#9733; Cocinas &bull; Vestidores &bull; Interiores &bull; Oficinas &nbsp;&nbsp;&nbsp;
+    &#9733; Dise&ntilde;o &bull; Fabricaci&oacute;n &bull; Instalaci&oacute;n Profesional &nbsp;&nbsp;&nbsp;
+    &#9733; Contac&aacute;nos hoy! &nbsp;&nbsp;&nbsp;
+  </marquee>
+</div>
+
+<!-- ============================================================ -->
+<!-- MAIN DESKTOP AREA                                             -->
+<!-- ============================================================ -->
+<main class="win-desktop-area">
+
+  <!-- Desktop icons row -->
+  <div class="win-desktop-icons" role="navigation" aria-label="Accesos directos">
+    <a href="#projects" class="win-icon">
+      <div class="win-icon-img" aria-hidden="true"><i class="fas fa-folder-open" style="color:#ffd700;"></i></div>
+      <span class="win-icon-label">Proyectos</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#info">Información</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-      </ul>
-    </div>
+    <a href="#info" class="win-icon">
+      <div class="win-icon-img" aria-hidden="true"><i class="fas fa-images" style="color:#87ceeb;"></i></div>
+      <span class="win-icon-label">Galeria</span>
+    </a>
+    <a href="https://wa.me/5491122334455?text=Hola%20quiero%20consultar" target="_blank" class="win-icon" rel="noopener noreferrer">
+      <div class="win-icon-img" aria-hidden="true"><i class="fab fa-whatsapp" style="color:#25D366;"></i></div>
+      <span class="win-icon-label">WhatsApp</span>
+    </a>
+    <a href="https://instagram.com/" target="_blank" class="win-icon" rel="noopener noreferrer">
+      <div class="win-icon-img" aria-hidden="true"><i class="fab fa-instagram" style="color:#ff69b4;"></i></div>
+      <span class="win-icon-label">Instagram</span>
+    </a>
+    <a href="https://facebook.com/" target="_blank" class="win-icon" rel="noopener noreferrer">
+      <div class="win-icon-img" aria-hidden="true"><i class="fab fa-facebook-square" style="color:#4267B2;"></i></div>
+      <span class="win-icon-label">Facebook</span>
+    </a>
   </div>
-</nav>
-  </header>
 
-  <div id="home"></div>
-  
-    <div class="slider">
-      <div class="slide-track right" id="slide-track">
+  <!-- ======================================================== -->
+  <!-- SLIDER WINDOW                                             -->
+  <!-- ======================================================== -->
+  <div class="win-slider-window win-window reveal" id="projects">
+    <div class="win-titlebar" role="banner">
+      <div class="win-titlebar-title">
+        <span aria-hidden="true">&#128444;</span>
+        <span>Atempo &mdash; Galeria de Proyectos</span>
       </div>
-  </div>
-
-
-
-<!-- Example for one section -->
-  <section class="two-column-section reveal" id="projects">
-    <div class="column image-column">
-      <img src="imgs/IMG_4013.JPG.jpeg" alt="Imagen descriptiva" class="img-fluid">
-    </div>
-    <div class="column text-column">
-      <h1>Lo que nos define</h1>
-      <p>En Atempo diseñamos y fabricamos muebles a medida que acompañan proyectos reales.</p>
-
-      <p>Trabajamos junto a particulares, arquitectos y constructoras en Pinamar y alrededores, 
-      integrándonos desde el inicio para que cada espacio tenga coherencia, precisión y carácter.</p>
-
-      <p>Creemos en la planificación como base de un buen resultado.</p>
-    </div>
-  </section>
-
-  <section class="two-column-section reveal">
-    <div class="column text-column">
-      <h1>De la idea a la realidad</h1>
-      <p>Diseñamos, producimos e instalamos mobiliario con enfoque técnico y estético.
-        Nos involucramos en cada etapa del proyecto:</p>
-        <li>Diseño y definición técnica.</li>
-        <li>Fabricación en taller propio.</li>
-        <li>Instalación profesional coordinada con la obra general.</li>
-        <p></p>
-       <p>Desarrollamos cocinas, vestidores, interiores completos, oficinas y proyectos de mayor escala.</p> 
-    </div>
-      <div class="column image-column">
-      <img src="imgs/FABRICA MUEBLES.jpg" alt="Imagen descriptiva" class="img-fluid">
-    </div>
-  </section>
-
-  <section class="two-column-section reveal">
-    <div class="column image-column">
-      <img src="imgs/IMG_4016.JPG.jpeg" alt="Imagen descriptiva" class="img-fluid">
-    </div>
-    <div class="column text-column">
-      <h1>Método Atempo</h1>
-      <p>Todo comienza con una buena planificación.</p>
-  <li>Relevamos el espacio y entendemos el proyecto.</li>
-  <li>Diseñamos y definimos cada detalle.</li>
-  <li>Organizamos la producción completa.  </li>
-  <li>Instalamos con precisión y coordinación.</li>
-
-  <p>Trabajamos con orden, tiempos claros y mirada integral para que tus muebles se integren mejor.</p>
-    </div>
-  </section>
-
-
-<section id="info" class="three-column-section reveal">
-   
-  <div class="image-card">
-    <img src="imgs/download (2).jpg" alt="Imagen 1">
-    <a href="book.html" class="overlay-text" target="_blank">Click aca!</a>
-  </div>
-  <div class="image-card"> <img src="imgs/TES by Miton.jpg" alt="Imagen 2"> 
-    <div class="overlay-text">Texto descriptivo: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum laborum perferendis nemo ad. Harum ullam ipsa nam mollitia impedit, soluta ex tenetur repellat voluptatem dolorem similique, quae aut nisi optio!</div> 
-  </div>
-  <div class="image-card">
-    <img src="imgs/download (4).jpg" alt="Imagen 3">
-    <div class="overlay-text">Titulo ejemplo</div> 
-  </div>
-</section>
-
-  <footer id="contact" class="footer">
-    <div class="footer-container">
-      <div class="footer-socials">
-        <a href="https://facebook.com/" target="_blank" class="footer-social-link">
-          <i class="fab fa-facebook-square"></i>
-          <span>Atempo</span>
-        </a>
-        <a href="https://instagram.com/" target="_blank" class="footer-social-link">
-          <i class="fab fa-instagram"></i>
-          <span>Atempo</span>
-        </a>
-        <a href="mailto:example@gmail.com" class="footer-social-link">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
-              <a href="mailto:example@gmail.com" class="footer-social-link">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
-              <a href="mailto:example@gmail.com" class="footer-social-link">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
+      <div class="win-titlebar-buttons" aria-hidden="true">
+        <div class="win-titlebar-btn" title="Minimizar">_</div>
+        <div class="win-titlebar-btn" title="Maximizar">&#9633;</div>
+        <div class="win-titlebar-btn" title="Cerrar" style="font-weight:bold;">&#10005;</div>
       </div>
-      <div class="footer-location">
-        <div class="location-title">Ubicación:</div>
-        <div class="location-address">Av. La direccion</div>
-        <div class="location-map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d562.2399434038517!2d-56.915740701536215!3d-37.14058501085831!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1756006992583!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="win-menubar">
+      <a href="#home">Archivo</a>
+      <a href="#projects">Ver</a>
+      <a href="#info">Herramientas</a>
+      <a href="https://wa.me/5491122334455" target="_blank" rel="noopener noreferrer">Ayuda</a>
+    </div>
+    <div class="win-slider-body">
+      <div class="slider" aria-label="Galeria de imagenes">
+        <div class="slide-track right" id="slide-track">
+          <!-- JS populates these -->
         </div>
       </div>
     </div>
-  </footer>
-<!-- ...existing code... -->
+    <div class="win-statusbar" aria-label="Barra de estado">
+      <div class="win-statusbar-pane">Listo</div>
+      <div class="win-statusbar-pane">Atempo Muebles &copy; 2025</div>
+      <div class="win-statusbar-pane">Pinamar, Argentina</div>
+    </div>
+  </div>
 
+  <!-- ======================================================== -->
+  <!-- PAGE CONTENT AREA                                         -->
+  <!-- ======================================================== -->
+  <div class="win-page-content">
 
+    <!-- Section 1: Lo que nos define -->
+    <section class="two-column-section reveal" aria-labelledby="sec1-title">
+      <div class="column image-column">
+        <div class="win-img-panel">
+          <img src="imgs/define1.jpg" alt="Muebles Atempo - Lo que nos define">
+        </div>
+      </div>
+      <div class="column text-column">
+        <div class="win-text-panel">
+          <div class="win-titlebar-title win-text-panel-titlebar" aria-hidden="true">
+            <span>&#128196;</span>
+            <span>Lo que nos define.txt &mdash; Bloc de Notas</span>
+          </div>
+          <div class="win-text-panel-body">
+            <h1 id="sec1-title">Lo que nos define</h1>
+            <p>En Atempo dise&ntilde;amos y fabricamos muebles a medida que acompa&ntilde;an proyectos reales.</p>
+            <p>Trabajamos junto a particulares, arquitectos y constructoras en Pinamar y alrededores, 
+            integr&aacute;ndonos desde el inicio para que cada espacio tenga coherencia, precisi&oacute;n y car&aacute;cter.</p>
+            <p>Creemos en la planificaci&oacute;n como base de un buen resultado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: De la idea a la realidad (reverse) -->
+    <section class="two-column-section section-reverse reveal" aria-labelledby="sec2-title">
+      <div class="column text-column">
+        <div class="win-text-panel" style="border-left:2px solid var(--win-gray-light); border-right:none;">
+          <div class="win-titlebar-title win-text-panel-titlebar" aria-hidden="true">
+            <span>&#128196;</span>
+            <span>De la idea a la realidad.txt &mdash; Bloc de Notas</span>
+          </div>
+          <div class="win-text-panel-body">
+            <h1 id="sec2-title">De la idea a la realidad</h1>
+            <p>Dise&ntilde;amos, producimos e instalamos mobiliario con enfoque t&eacute;cnico y est&eacute;tico.
+            Nos involucramos en cada etapa del proyecto:</p>
+            <ul>
+              <li>Dise&ntilde;o y definici&oacute;n t&eacute;cnica.</li>
+              <li>Fabricaci&oacute;n en taller propio.</li>
+              <li>Instalaci&oacute;n profesional coordinada con la obra general.</li>
+            </ul>
+            <p>Desarrollamos cocinas, vestidores, interiores completos, oficinas y proyectos de mayor escala.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column image-column">
+        <div class="win-img-panel" style="border-left:none;">
+          <img src="imgs/idea1.jpeg" alt="Fabricacion de muebles Atempo">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Metodo Atempo -->
+    <section class="two-column-section reveal" aria-labelledby="sec3-title">
+      <div class="column image-column">
+        <div class="win-img-panel">
+          <img src="imgs/meto1.jpg" alt="Metodo Atempo - instalacion de muebles">
+        </div>
+      </div>
+      <div class="column text-column">
+        <div class="win-text-panel">
+          <div class="win-titlebar-title win-text-panel-titlebar" aria-hidden="true">
+            <span>&#128196;</span>
+            <span>Metodo Atempo.txt &mdash; Bloc de Notas</span>
+          </div>
+          <div class="win-text-panel-body">
+            <h1 id="sec3-title">M&eacute;todo Atempo</h1>
+            <p>Todo comienza con una buena planificaci&oacute;n.</p>
+            <ul>
+              <li>Relevamos el espacio y entendemos el proyecto.</li>
+              <li>Dise&ntilde;amos y definimos cada detalle.</li>
+              <li>Organizamos la producci&oacute;n completa.</li>
+              <li>Instalamos con precisi&oacute;n y coordinaci&oacute;n.</li>
+            </ul>
+            <p>Trabajamos con orden, tiempos claros y mirada integral para que tus muebles se integren mejor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- THREE-COLUMN SECTION: Info / Gallery                      -->
+    <!-- ======================================================== -->
+    <section class="win-three-col-wrapper reveal" id="info" aria-labelledby="sec-info-title">
+      <div class="win-titlebar win-three-col-titlebar">
+        <div class="win-titlebar-title">
+          <span aria-hidden="true">&#128193;</span>
+          <span id="sec-info-title">Mis Documentos &mdash; Atempo</span>
+        </div>
+        <div class="win-titlebar-buttons" aria-hidden="true">
+          <div class="win-titlebar-btn">_</div>
+          <div class="win-titlebar-btn">&#9633;</div>
+          <div class="win-titlebar-btn">&#10005;</div>
+        </div>
+      </div>
+      <div class="win-three-col-body">
+        <div class="image-card">
+          <img src="imgs/ini1.jpg" alt="Proyecto destacado 1">
+          <a href="book.html" class="overlay-text" target="_blank" rel="noopener noreferrer">Ver Cat&aacute;logo<br><span style="font-size:10px; font-weight:normal;">Haz click aqu&iacute;!</span></a>
+        </div>
+        <div class="image-card">
+          <img src="imgs/ini2.jpg" alt="Proyecto destacado 2">
+          <div class="overlay-text">Interiores & Dise&ntilde;o<br><span style="font-size:10px; font-weight:normal;">Soluciones a medida para cada espacio con est&eacute;tica y precisi&oacute;n.</span></div>
+        </div>
+        <div class="image-card">
+          <img src="imgs/ini3.jpg" alt="Proyecto destacado 3">
+          <div class="overlay-text">Nuestros Proyectos</div>
+        </div>
+      </div>
+      <div class="win-statusbar" aria-label="Estado de la ventana">
+        <div class="win-statusbar-pane">3 objetos</div>
+        <div class="win-statusbar-pane">Pinamar, Argentina</div>
+      </div>
+    </section>
+
+  </div><!-- end .win-page-content -->
+</main>
+
+<!-- ============================================================ -->
+<!-- CONTACT POPUP WINDOW                                          -->
+<!-- ============================================================ -->
+<div id="contact-window" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+  <div class="win-titlebar">
+    <div class="win-titlebar-title">
+      <span aria-hidden="true">&#128222;</span>
+      <span id="contact-title">Contacto &mdash; Atempo</span>
+    </div>
+    <div class="win-titlebar-buttons" aria-hidden="true">
+      <div class="win-titlebar-btn" onclick="toggleContact()" title="Cerrar">&#10005;</div>
+    </div>
+  </div>
+  <div class="contact-body" id="contact">
+    <div class="contact-socials">
+      <strong style="font-size:12px; font-family:Tahoma,sans-serif; text-decoration:underline;">Redes &amp; Email:</strong>
+      <a href="https://facebook.com/" target="_blank" class="contact-social-link" rel="noopener noreferrer">
+        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        <span>Atempo en Facebook</span>
+      </a>
+      <a href="https://instagram.com/" target="_blank" class="contact-social-link" rel="noopener noreferrer">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+        <span>Atempo en Instagram</span>
+      </a>
+      <a href="mailto:example@gmail.com" class="contact-social-link">
+        <i class="far fa-envelope" aria-hidden="true"></i>
+        <span>example@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5491122334455?text=Hola%20quiero%20consultar" target="_blank" class="contact-social-link" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>WhatsApp Atempo</span>
+      </a>
+    </div>
+    <div class="contact-location">
+      <div class="location-title">Ubicaci&oacute;n:</div>
+      <div class="location-address">Av. La direcci&oacute;n, Pinamar</div>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d562.2399434038517!2d-56.915740701536215!3d-37.14058501085831!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1756006992583!5m2!1sen!2sus"
+        title="Ubicacion de Atempo en el mapa"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  <div class="win-statusbar">
+    <div class="win-statusbar-pane">Listo</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- WHATSAPP FLOATING BUTTON                                      -->
+<!-- ============================================================ -->
 <a href="https://wa.me/5491122334455?text=Hola%20quiero%20consultar"
    target="_blank"
-   class="whatsapp-btn">
-   <i class="fab fa-whatsapp"></i>
+   class="whatsapp-btn"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp"
+   title="Consultar por WhatsApp">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  <span>WhatsApp</span>
 </a>
 
-  <script src="js/script.js"></script>
+<!-- ============================================================ -->
+<!-- TASKBAR / FOOTER                                              -->
+<!-- ============================================================ -->
+<footer class="footer" id="taskbar" role="contentinfo" aria-label="Barra de tareas">
+  <button class="win-start-btn" onclick="window.scrollTo(0,0)" aria-label="Volver al inicio">
+    <span aria-hidden="true">&#127822;</span>
+    <strong>Inicio</strong>
+  </button>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="win-taskbar-sep" aria-hidden="true"></div>
 
-    
+  <nav class="win-taskbar-items" aria-label="Accesos rapidos">
+    <a href="#projects" class="win-taskbar-item">
+      <i class="fas fa-folder" aria-hidden="true"></i> Proyectos
+    </a>
+    <a href="#info" class="win-taskbar-item">
+      <i class="fas fa-images" aria-hidden="true"></i> Galeria
+    </a>
+    <button class="win-taskbar-item" onclick="toggleContact()">
+      <i class="fas fa-phone" aria-hidden="true"></i> Contacto
+    </button>
+  </nav>
+
+  <div class="win-taskbar-sep" aria-hidden="true"></div>
+
+  <div class="win-clock" id="win-clock" aria-live="polite" aria-label="Reloj">
+    00:00
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- JS                                                            -->
+<!-- ============================================================ -->
+<script>
+  // --- Clock ---
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('win-clock').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 10000);
+
+  // --- Contact popup toggle ---
+  function toggleContact() {
+    const win = document.getElementById('contact-window');
+    const btn = document.getElementById('contact-toggle');
+    win.classList.toggle('visible');
+    if (btn) btn.setAttribute('aria-expanded', win.classList.contains('visible'));
+  }
+
+  // --- Slider image list ---
+  const sliderImages = [
+    'imgs/ini1.jpg',
+    'imgs/ini2.jpg',
+    'imgs/ini3.jpg',
+    'imgs/ini4.jpg',
+    'imgs/ini5.jpg',
+    'imgs/define1.jpg',
+    'imgs/define2.png',
+    'imgs/define3.jpg',
+  ];
+
+  const track = document.getElementById('slide-track');
+  if (track) {
+    // Duplicate for seamless loop
+    const allImgs = [...sliderImages, ...sliderImages];
+    allImgs.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Proyecto Atempo';
+      img.className = 'slide-item';
+      img.onerror = function() { this.style.display = 'none'; };
+      track.appendChild(img);
+    });
+  }
+
+  // --- Reveal on scroll ---
+  function revealElements() {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealElements, { passive: true });
+  revealElements();
+</script>
+
 </body>
 </html>
