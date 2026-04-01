@@ -239,7 +239,7 @@ h1, h2, h3, p, a, li {
   letter-spacing: 2px;
   font-size: 1.5rem;
  
-  
+  background-color: rgb(29, 30, 36) !important; /* Fondo oscuro traslúcido */
 }
 
 .accordion-item {
