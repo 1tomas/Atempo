@@ -20,8 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. LÓGICA DEL LIBRO 3D
   const libro = document.getElementById('libro');
   const paginas = document.querySelectorAll('.pagina');
+  const indicador = document.getElementById('indicadorDeslizar'); // 1. Capturamos el indicador
   let inicioToqueX = 0;
   let paginaActual = 0;
+
+
 
   // Asignar z-index inicial correcto
   paginas.forEach((pag, index) => {
@@ -30,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   libro.addEventListener('touchstart', e => {
       inicioToqueX = e.touches[0].clientX;
+          // 2. Al primer toque en el libro, le agregamos la clase para ocultarlo
+      if (indicador && !indicador.classList.contains('oculto')) {
+          indicador.classList.add('oculto');
+      }
   });
 
   libro.addEventListener('touchend', e => {
@@ -65,3 +72,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+

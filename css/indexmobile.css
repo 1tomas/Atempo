@@ -58,7 +58,7 @@ p, a, li {
 .leyenda h1, .leyenda h2, 
 .contenido-diapositiva h1, .contenido-diapositiva h3, 
 .texto-pagina h1, .texto-pagina h2 {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* Sombra sutil para los párrafos sobre imágenes */
@@ -66,7 +66,7 @@ p, a, li {
 .contenido-diapositiva p, 
 .texto-pagina p {
   font-size: 1.1rem; /* Un pelín más grande para contrarrestar la foto */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 /* ----------------------------------- */
@@ -311,3 +311,56 @@ p, a, li {
   box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
   text-decoration: none;
 }
+
+/* ----------------------------------- */
+/* INDICADOR DE DESLIZAR (SWIPE HINT)  */
+/* ----------------------------------- */
+.indicador-deslizar {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100; /* Aseguramos que esté por encima de las hojas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(29, 30, 36, 0.085); /* Tono oscuro de Atempo */
+  padding: 15px 10px;
+  border-radius: 30px;
+
+  /* CRUCIAL: Deja pasar el toque hacia el libro */
+  pointer-events: none; 
+  transition: opacity 0.6s ease; /* Desvanecimiento suave */
+}
+
+.indicador-deslizar span {
+  font-family: sans-serif; /* Usamos una fuente simple para que se lea rápido */
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  color: #fff;
+  text-shadow: none;
+}
+
+.deslizar-icono {
+  font-size: 1.8rem;
+  color: #ffffff; /* Podemos usar el verde de WhatsApp como acento, o dejarlo #fff */
+  /* Animación infinita */
+  animation: moverMano 1.5s ease-in-out infinite;
+}
+
+/* Animación sutil de la mano moviéndose de derecha a izquierda */
+@keyframes moverMano {
+  0%, 100% { transform: translateX(8px) rotate(-15deg); }
+  50% { transform: translateX(-8px) rotate(-15deg); }
+}
+
+/* Esta es la clase que JavaScript agregará para ocultarlo */
+.indicador-deslizar.oculto {
+  opacity: 0;
+}
+
+
+
