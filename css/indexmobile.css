@@ -42,8 +42,9 @@ h1, h2, h3, p, a, li { color: #fff; }
   position: relative;
   height: 660px;
   overflow: hidden;
-  background: #1d1e24;
+  background: #1d1e24bb;
   width: 100%;
+margin-bottom: 80px;
 }
 
 .item-fade {
@@ -68,8 +69,9 @@ h1, h2, h3, p, a, li { color: #fff; }
 }
 
 .leyenda {
-  padding: 15px;
+  padding: 5px;
   background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  
 }
 
 /* ----------------------------------- */
@@ -77,7 +79,7 @@ h1, h2, h3, p, a, li { color: #fff; }
 /* ----------------------------------- */
 .carrusel-proyectos {
   width: 100%;
-  padding: 40px 0;
+  padding: 40px 0px;
 }
 
 .swiper {
