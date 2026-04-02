@@ -1,5 +1,5 @@
 /* ----------------------------------- */
-/* 1. RESET, BASE Y TIPOGRAFÍA         */
+/* 1. RESET, BASE Y TIPOGRAFÍA GLOBAL  */
 /* ----------------------------------- */
 * {
   margin: 0;
@@ -14,18 +14,63 @@ html {
 body {
   width: 100%;
   background-image: url('../imgs/fondo.png');
-  background-size: cover; /* Cambiado a cover para mejor adaptación */
-  background-attachment: fixed;
   font-family: 'Playfair Display', serif;
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3, p, a, li { color: #fff; }
+/* --- ESTÁNDAR DE TÍTULOS --- */
+h1, h2, h3 { 
+  color: #fff; 
+  font-weight: 600; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-size: 1.5rem; /* Tamaño unificado para todos los títulos */
+}
+
+/* --- ESTÁNDAR DE TEXTOS Y PÁRRAFOS --- */
+p, a, li { 
+  color: #fff; 
+  font-size: 1.05rem; /* Tamaño base para celular */
+  line-height: 1.5;   /* Interlineado cómodo */
+  margin: 0;
+}
 
 /* ----------------------------------- */
-/* 2. BARRA DE NAVEGACIÓN              */
+/* 2. TEXTOS SOBRE IMÁGENES (SOMBRAS)  */
+/* ----------------------------------- */
+/* Agrupamos las 3 secciones que tienen texto flotando sobre fotos */
+.leyenda, 
+.contenido-diapositiva, 
+.texto-pagina {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Degradado unificado para las 3 secciones */
+  background: linear-gradient(to top, rgba(29, 30, 36, 0.95) 0%, rgba(29, 30, 36, 0.6) 60%, transparent 100%);
+  z-index: 10;
+}
+
+/* Sombra fuerte para los títulos sobre imágenes */
+.leyenda h1, .leyenda h2, 
+.contenido-diapositiva h1, .contenido-diapositiva h3, 
+.texto-pagina h1, .texto-pagina h2 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Sombra sutil para los párrafos sobre imágenes */
+.leyenda p, 
+.contenido-diapositiva p, 
+.texto-pagina p {
+  font-size: 1.1rem; /* Un pelín más grande para contrarrestar la foto */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* ----------------------------------- */
+/* 3. BARRA DE NAVEGACIÓN              */
 /* ----------------------------------- */
 .barra-personalizada {
   background: #1d1e24 !important;
@@ -35,7 +80,7 @@ h1, h2, h3, p, a, li { color: #fff; }
 }
 
 /* ----------------------------------- */
-/* 3. CARRUSEL INICIO (FADE)           */
+/* 4. CARRUSEL INICIO (FADE)           */
 /* ----------------------------------- */
 .contenedor-desvanecimiento {
   position: relative;
@@ -43,7 +88,7 @@ h1, h2, h3, p, a, li { color: #fff; }
   overflow: hidden;
   background: #1d1e24bb;
   width: 100%;
-margin-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .item-fade {
@@ -67,14 +112,13 @@ margin-bottom: 80px;
   object-fit: cover;
 }
 
+/* Ajuste específico de padding para esta sección */
 .leyenda {
-  padding: 5px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.8));
-  
+  padding: 50px 20px 20px 20px; 
 }
 
 /* ----------------------------------- */
-/* 4. CARRUSEL INFORMACIÓN (SWIPER)    */
+/* 5. CARRUSEL INFORMACIÓN (SWIPER)    */
 /* ----------------------------------- */
 .carrusel-proyectos {
   width: 100%;
@@ -94,34 +138,16 @@ margin-bottom: 80px;
   object-fit: cover;
 }
 
+/* Ajuste específico de padding para esta sección */
 .contenido-diapositiva {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 30px 15px;
-  background: linear-gradient(to top, #1d1e24, transparent);
-  z-index: 10;
-}
-
-.contenido-diapositiva h1, 
-.contenido-diapositiva h3 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-
-.contenido-diapositiva p {
-  font-size: 1rem;
-  margin: 0;
-  opacity: 0.9;
+  padding: 50px 20px 30px 20px; 
 }
 
 .swiper-pagination-bullet { background: #fff; opacity: 0.5; }
 .swiper-pagination-bullet-active { background: #fff; opacity: 1; }
 
 /* ----------------------------------- */
-/* 5. SECCIÓN LIBRO 3D (PROYECTOS)     */
+/* 6. SECCIÓN LIBRO 3D (PROYECTOS)     */
 /* ----------------------------------- */
 .seccion-libro {
   height: 70vh;
@@ -165,28 +191,23 @@ margin-bottom: 80px;
 
 .pagina.volteada { transform: rotateY(-180deg); }
 
+/* Ajuste específico de padding para esta sección */
 .texto-pagina {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(transparent, rgba(0,0,0,0.9));
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
 }
 
 /* ----------------------------------- */
-/* 6. PREGUNTAS FRECUENTES (FAQ)       */
+/* 7. PREGUNTAS FRECUENTES (FAQ)       */
 /* ----------------------------------- */
 .seccion-preguntas {
   padding: 60px 20px;
 }
 
 .seccion-preguntas h2.text-center {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.5rem;
   background-color: rgb(29, 30, 36);
   padding: 15px;
   border-radius: 5px;
+  /* Hereda el 1.5rem y bold del global */
 }
 
 .accordion-item {
@@ -211,9 +232,8 @@ margin-bottom: 80px;
 }
 
 .accordion-body {
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  color: #ccc; /* Un poco más gris para diferenciar del título */
+  /* Hereda tamaño e interlineado del global */
   padding: 20px;
 }
 
@@ -223,7 +243,7 @@ margin-bottom: 80px;
 }
 
 /* ----------------------------------- */
-/* 7. PIE DE PÁGINA Y WHATSAPP         */
+/* 8. PIE DE PÁGINA Y WHATSAPP         */
 /* ----------------------------------- */
 .pie-pagina {
   padding: 3rem 1rem;
@@ -250,9 +270,8 @@ margin-bottom: 80px;
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
+  /* Hereda el tamaño global de 'a' */
 }
 
 .ubicacion-pie {
