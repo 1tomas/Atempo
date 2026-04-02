@@ -1,47 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.fade-item');
-  let currentSlide = 0;
 
-  function nextSlide() {
-    // Quitamos la clase active a la actual
-    slides[currentSlide].classList.remove('active');
-    
-    // Pasamos a la siguiente (o volvemos a la primera)
-    currentSlide = (currentSlide + 1) % slides.length;
-    
-    // Agregamos active a la nueva
-    slides[currentSlide].classList.add('active');
-  }
+  // 1. LÓGICA DEL CARRUSEL INICIAL (FADE)
+  const diapositivas = document.querySelectorAll('.item-fade');
+  let diapositivaActual = 0;
 
-  // Cambiar cada 5 segundos
-  setInterval(nextSlide, 5000);
-});
+  setInterval(() => {
+    diapositivas[diapositivaActual].classList.remove('activo');
+    diapositivaActual = (diapositivaActual + 1) % diapositivas.length;
+    diapositivas[diapositivaActual].classList.add('activo');
+  }, 5000);
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Inicializar el carrousel táctil
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,      // Ver 1 slide a la vez en móvil
-    spaceBetween: 0,       // Sin espacio entre slides
-    loop: true,            // Bucle infinito
-    grabCursor: true,      // Cambia el cursor a una mano (en desktop)
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,     // Los puntos son clickeables
-    },
-    // Configuración para diferentes anchos de pantalla (Responsive)
-    breakpoints: {
-      // Cuando la pantalla es >= 768px (Tablet/Desktop)
-      768: {
-        slidesPerView: 2,  // Ver 2 slides
-        spaceBetween: 20,  // Espacio de 20px
-      },
-      // Cuando la pantalla es >= 1024px
-      1024: {
-        slidesPerView: 3,  // Ver 3 slides
-        spaceBetween: 30,
-      },
-    },
+  // 2. INICIALIZAR SWIPER
+  var swiper = new Swiper(".miSwiper", {
+    slidesPerView: 1,
+    loop: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
   });
+
+  // 3. LÓGICA DEL LIBRO 3D
+  const libro = document.getElementById('libro');
+  const paginas = document.querySelectorAll('.pagina');
+  let inicioToqueX = 0;
+  let paginaActual = 0;
+
+  // Asignar z-index inicial correcto
+  paginas.forEach((pag, index) => {
+      pag.style.zIndex = paginas.length - index;
+  });
+
+  libro.addEventListener('touchstart', e => {
+      inicioToqueX = e.touches[0].clientX;
+  });
+
+  libro.addEventListener('touchend', e => {
+      const finToqueX = e.changedTouches[0].clientX;
+      const diferencia = inicioToqueX - finToqueX;
+
+      // Avanzar página
+      if (diferencia > 50 && paginaActual < paginas.length - 1) {
+          paginas[paginaActual].classList.add('volteada');
+          const pagVoltear = paginas[paginaActual];
+          setTimeout(() => { pagVoltear.style.zIndex = paginaActual; }, 500);
+          paginaActual++;
+      } 
+      // Retroceder página
+      else if (diferencia < -50 && paginaActual > 0) {
+          paginaActual--;
+          paginas[paginaActual].style.zIndex = paginas.length - paginaActual;
+          paginas[paginaActual].classList.remove('volteada');
+      }
+  });
+
+  // 4. CERRAR MENÚ BOOTSTRAP AL HACER CLIC EN UN ENLACE
+  const enlacesNav = document.querySelectorAll('.navbar-nav .nav-link');
+  const contenidoMenu = document.getElementById('menuNavegacion');
+  const menuColapsable = new bootstrap.Collapse(contenidoMenu, { toggle: false });
+
+  enlacesNav.forEach((enlace) => {
+    enlace.addEventListener('click', () => {
+      if (contenidoMenu.classList.contains('show')) {
+        menuColapsable.hide();
+      }
+    });
+  });
+
 });

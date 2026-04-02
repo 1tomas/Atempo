@@ -1,248 +1,195 @@
-/* -------------------- */
-    /* 1. RESET Y BASE      */
-    /* -------------------- */
-
+/* ----------------------------------- */
+/* 1. RESET, BASE Y TIPOGRAFÍA         */
+/* ----------------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   background-image: url('../imgs/fondo.png');
-  background-size: 100%;
-
-  /* Tipografía base legible en móviles */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-size: cover; /* Cambiado a cover para mejor adaptación */
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'Playfair Display', serif;
   color: #fff;
   line-height: 1.6;
-  overflow-x: hidden; /* Evita scrolls laterales accidentales */
-  
+  overflow-x: hidden;
 }
 
-h1, h2, h3, p, a, li {
-  color: #fff;
-}
+h1, h2, h3, p, a, li { color: #fff; }
 
-/* -------------------- */
-/* 2. NAVBAR (Bootstrap)*/
-/* -------------------- */
-.custom-navbar {
-  max-width: 100%;
+/* ----------------------------------- */
+/* 2. BARRA DE NAVEGACIÓN              */
+/* ----------------------------------- */
+.barra-personalizada {
   background: #1d1e24 !important;
   backdrop-filter: blur(50px);
+  padding: 0;
+  margin: 0;
 }
 
-/* Espacio para que el contenido no quede debajo de la navbar fija */
-#home {
-  padding-top: 85px; 
-}
-
-
-.slider-container {
+/* ----------------------------------- */
+/* 3. CARRUSEL INICIO (FADE)           */
+/* ----------------------------------- */
+.contenedor-desvanecimiento {
   position: relative;
-  height: 570px; /* Altura para celular */
+  height: 660px;
   overflow: hidden;
   background: #1d1e24;
-  width: 100%; /* Ocupa exactamente el ancho de la pantalla visual */
-  margin-left: 0;
-  margin-right: 0;
-  left: 0;
+  width: 100%;
 }
 
-.fade-item {
+.item-fade {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out; /* El efecto de desvanecimiento */
+  transition: opacity 1.0s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.fade-item.active {
+.item-fade.activo {
   opacity: 1;
   z-index: 10;
 }
 
-.fade-item img {
-  max-width: 100%;
+.item-fade img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-    .caption {
-    padding: 5px;
-    color: white;
-    }
+.leyenda {
+  padding: 15px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
 
-
-
-/* -------------------- */
-/* CARROUSEL TÁCTIL (Móvil) */
-/* -------------------- */
-.proyectos-carrousel {
+/* ----------------------------------- */
+/* 4. CARRUSEL INFORMACIÓN (SWIPER)    */
+/* ----------------------------------- */
+.carrusel-proyectos {
   width: 100%;
   padding: 40px 0;
 }
 
 .swiper {
   width: 100%;
-  height: 100vw; /* Altura cuadrada en móvil para que destaque */
+  height: 100vw;
   max-height: 500px;
 }
-
 
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crucial para que la imagen no se deforme */
+  object-fit: cover;
 }
 
-/* Superposición de Texto */
-.slide-content {
-  position:absolute;
+.contenido-diapositiva {
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 30px 10px;
-  background: linear-gradient(to top, #1d1e24, transparent); /* Degradado para legibilidad */
-  color: white;
-  text-align: match-parent;
+  padding: 30px 15px;
+  background: linear-gradient(to top, #1d1e24, transparent);
   z-index: 10;
 }
 
-.slide-content h3 {
+.contenido-diapositiva h1, 
+.contenido-diapositiva h3 {
   font-size: 1.5rem;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-.slide-content p {
+.contenido-diapositiva p {
   font-size: 1rem;
   margin: 0;
   opacity: 0.9;
 }
 
-/* Personalizar los puntos de paginación (opcional) */
-.swiper-pagination-bullet {
-  background: #fff;
-  opacity: 0.5;
-}
+.swiper-pagination-bullet { background: #fff; opacity: 0.5; }
+.swiper-pagination-bullet-active { background: #fff; opacity: 1; }
 
-.swiper-pagination-bullet-active {
-  background: #fff;
-  opacity: 1;
-}
-    
-/* -------------------- */
-/* FOOTER MÓVIL         */
-/* -------------------- */
-.footer {
-  padding: 3rem 1rem; /* Espaciado interno para que no toque los bordes */
-  background-color: #1d1e24;
-  color: #fff;
-}
-
-.footer-container {
+/* ----------------------------------- */
+/* 5. SECCIÓN LIBRO 3D (PROYECTOS)     */
+/* ----------------------------------- */
+.seccion-libro {
+  height: 70vh;
   display: flex;
-  flex-direction: column; /* Apilado vertical para celular */
-  align-items: center;    /* Centra todo el contenido */
-  gap: 3rem;
-  width: 100%;
-}
-
-.footer-socials {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra los iconos de redes sociales */
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.footer-social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.footer-social-link i {
-  font-size: 1.8rem; /* Un poco más chico para mobile */
-}
-
-/* -------------------- */
-/* UBICACIÓN Y MAPA     */
-/* -------------------- */
-.footer-location {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra el texto de ubicación */
-  text-align: center;
-}
-
-.location-map {
-  width: 100%;
-  max-width: 300px; /* Limitamos el ancho del mapa en celular */
-  margin-top: 1rem;
-}
-
-.location-map iframe {
-  width: 100%;
-  height: 200px; /* Altura más discreta para móviles */
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* -------------------- */
-/* BOTÓN WHATSAPP FIJO  */
-/* -------------------- */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 32px;
-  z-index: 9999; /* Para que siempre esté por encima de todo */
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-  text-decoration: none;
-  transition: transform 0.3s ease;
+  align-items: center;
+  perspective: 2000px;
+  overflow: hidden;
+  padding: 20px;
 }
 
-.whatsapp-btn:active {
-  transform: scale(0.9); /* Efecto de pulsación al tocar en el cel */
+.libro {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  transform-style: preserve-3d;
 }
-/* -------------------- */
-/* SECCIÓN FAQ          */
-/* -------------------- */
-.faq-section {
+
+.pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.frente, .dorso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.frente { z-index: 2; background: #1d1e24; }
+.dorso { transform: rotateY(180deg); background: #000; z-index: 1; }
+.pagina img { width: 100%; height: 100%; object-fit: cover; }
+
+.pagina.volteada { transform: rotateY(-180deg); }
+
+.texto-pagina {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 20px;
+}
+
+/* ----------------------------------- */
+/* 6. PREGUNTAS FRECUENTES (FAQ)       */
+/* ----------------------------------- */
+.seccion-preguntas {
   padding: 60px 20px;
-  background-color: transparent; /* Se ve el fondo fijo del body */
 }
 
-.faq-section h2 {
+.seccion-preguntas h2.text-center {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1.5rem;
-
-  background-color: rgb(29, 30, 36) !important; /* Fondo oscuro traslúcido */
+  background-color: rgb(29, 30, 36);
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .accordion-item {
-  background-color: rgb(29, 30, 36) !important; /* Fondo oscuro traslúcido */
+  background-color: rgb(29, 30, 36) !important;
   border: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   margin-bottom: 5px;
@@ -256,13 +203,9 @@ h1, h2, h3, p, a, li {
   box-shadow: none !important;
 }
 
-/* El ícono de la flecha en blanco */
-.accordion-button::after {
-  filter: invert(1);
-}
-
+.accordion-button::after { filter: invert(1); }
 .accordion-button:not(.collapsed) {
-  color: #25D366 !important; /* Color de énfasis (podés usar el de Atempo) */
+  color: #25D366 !important;
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -273,7 +216,78 @@ h1, h2, h3, p, a, li {
   padding: 20px;
 }
 
-.accordion-body ul {
+.accordion-body ul, .accordion-body ol {
   padding-left: 20px;
   margin-top: 10px;
+}
+
+/* ----------------------------------- */
+/* 7. PIE DE PÁGINA Y WHATSAPP         */
+/* ----------------------------------- */
+.pie-pagina {
+  padding: 3rem 1rem;
+  background-color: #1d1e24;
+}
+
+.contenedor-pie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.redes-pie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.enlace-redes {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.ubicacion-pie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.mapa-ubicacion {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1rem;
+}
+
+.mapa-ubicacion iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.boton-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  z-index: 9999;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+  text-decoration: none;
 }
