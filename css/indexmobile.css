@@ -16,7 +16,6 @@ body {
   background-image: url('../imgs/fondo.png');
   background-size: cover; /* Cambiado a cover para mejor adaptación */
   background-attachment: fixed;
-  background-position: center;
   font-family: 'Playfair Display', serif;
   color: #fff;
   line-height: 1.6;
