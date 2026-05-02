@@ -15,7 +15,7 @@ body {
   width: 100%;
   background-image: url('../imgs/fondo2.png');
   font-family: 'Playfair Display', serif;
-
+  background-repeat: repeat;
   background-size: cover;
   color: #fff;
   line-height: 1.6;
