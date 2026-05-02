@@ -13,8 +13,11 @@ html {
 
 body {
   width: 100%;
-  background-image: url('../imgs/fondo.png');
+  background-image: url('../imgs/fondo2.png');
   font-family: 'Playfair Display', serif;
+  background-attachment: fixed;
+
+  background-size: cover;
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
@@ -129,7 +132,7 @@ p, a, li {
   width: 100%;
   height: 100vw;
   max-height: 500px;
-}
+} 
 
 .swiper-slide img {
   display: block;
@@ -193,9 +196,24 @@ p, a, li {
 
 /* Ajuste específico de padding para esta sección */
 .texto-pagina {
-  padding: 50px 20px 20px 20px;
+  position: absolute;
+  top: 0;                /* Lo anclamos al techo de la hoja */
+  bottom: auto;          /* Anulamos el anclaje inferior que venía del global */
+  left: 0;
+  width: 100%;
+  
+  /* Estilos del texto */
+  text-align: center;    /* Centrado horizontal */
+  text-transform: uppercase; /* Fuerza las mayúsculas */
+  font-weight: 200;      /* Le damos un poco más de cuerpo a la letra */
+  
+  /* Degradado invertido: bien oscuro arriba, transparente hacia abajo */
+  background: linear-gradient(to bottom, rgba(29, 30, 36, 0.95) 0%, rgba(29, 30, 36, 0.6) 60%, transparent 100%);
+  
+  /* Padding: más espacio abajo (60px) para que el degradado se pierda suavemente sobre la foto */
+  padding: 30px 20px 60px 20px;
+  z-index: 10;
 }
-
 /* ----------------------------------- */
 /* 7. PREGUNTAS FRECUENTES (FAQ)       */
 /* ----------------------------------- */
