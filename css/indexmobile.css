@@ -15,8 +15,9 @@ body {
   width: 100%;
   background-image: url('../imgs/fondo2.png');
   font-family: 'Playfair Display', serif;
-  background-repeat: repeat;
   background-size: cover;
+  background-attachment: fixed;
+  
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
@@ -88,7 +89,6 @@ p, a, li {
   position: relative;
   height: 660px;
   overflow: hidden;
-  background: #1d1e24bb;
   width: 100%;
   margin-bottom: 80px;
 }
@@ -317,7 +317,7 @@ p, a, li {
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background-color: #1d241d;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -379,5 +379,153 @@ p, a, li {
   opacity: 0;
 }
 
+/* ----------------------------------- */
+/* 6. SECCIÓN LIBRO 3D (PROYECTOS)     */
+/* ----------------------------------- */
+.seccion-libro {
+  position: relative; /* ¡CRUCIAL para que los botones se anclen abajo! */
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* ... (mantené el resto de las clases del .libro y .pagina igual) ... */
 
 
+/* ----------------------------------- */
+/* CONTROLES DEL LIBRO (ESCRITORIO)    */
+/* ----------------------------------- */
+.controles-libro {
+  position: absolute;
+  bottom: 30px; /* Distancia desde el piso de la sección */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado perfecto horizontal */
+  display: none; /* Ocultos por defecto en celular */
+  gap: 20px; /* Separación entre el botón izquierdo y derecho */
+  z-index: 100;
+}
+
+.btn-libro {
+  background: rgba(29, 30, 36, 0.8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-libro:hover {
+  background: #1d1e24; 
+  border-color: #1d1e24;
+  
+} 
+
+/* ========================================= */
+/*       DISEÑO ESCRITORIO (PC / TABLET)     */
+/* ========================================= */
+
+@media (min-width: 992px) {
+  
+  /* ----------------------------------- */
+  /* SECCIÓN INFORMACIÓN (3 COLUMNAS)    */
+  /* ----------------------------------- */
+  
+  .seccion-info {
+    display: flex;
+    flex-direction: row;          /* Pone los elementos uno al lado del otro */
+    justify-content: center;      /* Centra todo el bloque */
+    gap: 30px;                    /* Espacio prolijo entre los 3 carruseles */
+    padding: 80px 5%;             /* Más aire arriba/abajo y a los costados */
+    max-width: 1400px;            /* Evita que se estire demasiado en monitores gigantes */
+    margin: 0 auto;               /* Centra el contenedor principal */
+  }
+
+  .carrusel-proyectos {
+    flex: 1;                      /* Obliga a los 3 a medir exactamente lo mismo (33.3%) */
+    padding: 0;                   /* Le sacamos el padding vertical que tenía en el celular */
+    min-width: 0;                 /* HACK VITAL: Evita que Swiper rompa el Flexbox */
+  }
+
+  /* Ajuste de los carruseles para PC */
+  .carrusel-proyectos .swiper {
+    height: 500px;                /* Altura fija y elegante para monitor */
+    border-radius: 12px;          /* Bordes redondeados para que parezcan "Tarjetas" */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para darles profundidad */
+  }
+
+  /* El texto respira un poco más en PC */
+  .contenido-diapositiva {
+    padding: 80px 30px 40px 30px; 
+  }
+  
+  .contenido-diapositiva p {
+    font-size: 1.15rem;           /* Texto apenas más grande para leer lejos del monitor */
+  }
+
+  /* ----------------------------------- */
+  /* CARRUSEL INICIO (FADE) EN ESCRITORIO*/
+  /* ----------------------------------- */
+.contenedor-desvanecimiento {
+    width: 95%;
+    max-width: 1300px;
+    height: 75vh;
+    min-height: 650px;
+    margin: 110px auto 60px auto;
+  } 
+
+  .item-fade {
+    width: 33.33%;       /* Cada imagen ocupa exactamente un tercio de la pantalla */
+    padding: 0 10px;     /* Separación sutil entre las 3 fotos */
+    /* Eliminamos el z-index y opacity de CSS, porque ahora JS toma el control total */
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .seccion-libro {
+    height: 90vh;
+  }
+
+/* 1. Encendemos el contenedor de los botones */
+  .controles-libro {
+    display: flex;
+  }
+
+  /* 2. Ocultamos el cartelito de la mano táctil (no sirve en PC) */
+  .indicador-deslizar {
+    display: none !important; 
+  }
+  
+  /* 3. Opcional: Hacemos el libro un poquito más grande para aprovechar el monitor */
+  .libro {
+    max-width: 500px;
+    height: 600px;
+  }
+
+  .contenedor-pie {
+    flex-direction: row;             /* Pone el bloque de redes y el mapa uno al lado del otro */
+    justify-content: space-between;  /* Los empuja a los extremos */
+    align-items: flex-start;         /* Los alinea arriba */
+  }
+
+  .redes-pie {
+    margin-top: 2rem; /* Baja un poco los enlaces para alinearlos con el título del mapa */
+  }
+
+  .ubicacion-pie {
+    align-items:center; /* Tira el título del mapa hacia la derecha */
+    text-align: right;
+  }
+
+  .mapa-ubicacion {
+    max-width: 600px; /* En monitores grandes, permitimos que el mapa sea AÚN más ancho */
+  }
+}
