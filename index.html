@@ -1,450 +1,243 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atempo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/indexmobile.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atempo | Mobiliario a medida</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
-  <header>      
-    <nav class="navbar navbar-expand-lg navbar-dark barra-personalizada fixed-top">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#inicio">
-          <img src="imgs/Atempo circulos sin fondo-02.png" alt="Atempo Logo" style="height:60px; margin-right:16px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion" 
-          aria-controls="menuNavegacion" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menuNavegacion">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#informacion">Información</a></li>
-            <li class="nav-item"><a class="nav-link" href="#proyectos">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas Frecuentes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#inicio" class="header__logo">
+        <img src="imgs/aver.png" alt="Atempo" class="header__logo-img">
+        <span class="header__logo-text">ATEMPO</span>
+      </a>
+
+      <button class="header__toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+      <nav class="nav" id="menuNav">
+        <ul class="nav__list">
+          <li><a href="#inicio" class="nav__link">Inicio</a></li>
+          <li><a href="#sobre-atempo" class="nav__link">Sobre ATEMPO</a></li>
+          <li><a href="#catalogo" class="nav__link">Catálogo</a></li>
+          <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+          <li><a href="#donde-estamos" class="nav__link">Dónde estamos</a></li>
+          <li><a href="#contacto" class="nav__link nav__link--cta">Hablemos</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="inicio" class="contenedor-desvanecimiento">
-    <div class="item-fade activo">
-      <img src="imgs/ini3.jpg" alt="1">
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" class="hero">
+    <img src="imgs/ini6.png" alt="Cocina de diseño a medida Atempo" class="hero__img">
+    <div class="hero__overlay"></div>
 
-    </div>
-    <div class="item-fade">
-      <img src="imgs/ini2.jpg" alt="2">
+    <div class="hero__content">
+      <h1 class="hero__title">Mobiliario a medida para espacios que perduran.</h1>
+      <p class="hero__subtitle">Diseñamos, fabricamos e instalamos cada detalle de tu proyecto.</p>
 
-    </div>
-    <div class="item-fade">
-      <img src="imgs/ini1.jpg" alt="3">
-
-    </div>
-    <div class="item-fade">
-      <img src="imgs/ini4.jpg" alt="4">
-
-    </div>
-    <div class="item-fade">
-      <img src="imgs/ini5.jpg" alt="5">
-    </div>
-    
-    </div>
-    <div class="item-fade">
-      <img src="imgs/ini6.png" alt="5">
+      <div class="hero__actions">
+        <a href="#proyectos" class="btn btn--dark">Ver proyectos</a>
+        <a href="#contacto" class="btn btn--outline">Hablemos</a>
+      </div>
     </div>
   </section>
 
-  <section id="informacion" class="seccion-info">
-    
-    <article class="carrusel-proyectos reveal">
-      <div class="swiper miSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="imgs/define1.jpg" alt="Cocina Moderna Atempo">
-            <div class="contenido-diapositiva">
-              <h3>Lo que nos define</h3>
-              <p>Diseño integral y fabricación a medida en Pinamar.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/define3.jpg" alt="Vestidor Atempo">
-            <div class="contenido-diapositiva">
-              <p>Trabajamos junto a particulares, arquitectos y constructoras en Pinamar y alrededores, integrándonos desde el inicio para que cada espacio tenga coherencia, precisión y carácter.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/define2.jpeg" alt="Oficina Atempo">
-            <div class="contenido-diapositiva"> 
-             <p>Creemos en la planificación como base de un buen resultado.</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </article>
-
-    <article class="carrusel-proyectos reveal">
-      <div class="swiper miSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="imgs/idea1.jpeg" alt="Cocina Moderna Atempo">
-            <div class="contenido-diapositiva">
-              <h1>De la idea a la realidad</h1>
-              <p>Diseñamos, producimos e instalamos mobiliario con enfoque técnico y estético. Nos involucramos en cada etapa del proyecto.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/idea2.jpg"" alt="Vestidor Atempo">
-            <div class="contenido-diapositiva">
-              <p>-Diseño y definición técnica.</p>
-              <p>-Fabricación en taller propio.</p>
-              <p>-Instalación profesional coordinada con la obra general.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/idea3.jpg" alt="Oficina Atempo">
-            <div class="contenido-diapositiva">
-              <p>Desarrollamos cocinas, vestidores, interiores completos, oficinas y proyectos de mayor escala.</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </article>
-
-    <article class="carrusel-proyectos reveal">
-      <div class="swiper miSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="imgs/meto4.jpeg" alt="Cocina Moderna Atempo">
-            <div class="contenido-diapositiva">
-              <h3>Método Atempo</h3>
-              <p>Todo comienza con una buena planificación.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/meto1.jpg" alt="Vestidor Atempo">
-            <div class="contenido-diapositiva">
-              <p>-Relevamos el espacio y entendemos el proyecto.</p>
-              <p>-Diseñamos y definimos cada detalle.</p>
-              <p>-Organizamos la producción completa.</p>
-              <p>-Instalamos con precisión y coordinación.</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="imgs/meto2.jpg" alt="Oficina Atempo">
-            <div class="contenido-diapositiva">
-              <p>Trabajamos con orden, tiempos claros y mirada integral para que tus muebles se integren mejor.</p>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </article>
-
-  </section>
-
-  <section id="proyectos" class="seccion-libro">
-       
-
-  <div class="indicador-deslizar" id="indicadorDeslizar">
-    <i class="fa-solid fa-hand-pointer deslizar-icono"></i>
-    <span>Deslizá para ver más</span>
-  </div>
-
-    <div class="libro" id="libro">
-      
-      <div class="pagina" style="z-index: 5;">
-        <div class="frente">
-          <img src="imgs/tapa.JPG" alt="Cocina Pinamar">
-        </div>
-
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div> 
-      </div>
-      <div class="pagina" style="z-index: 2;">
-        <div class="frente">
-          <img src="imgs/whasap/w15.png" alt="Vestidor Cariló">
-          <p class="texto-pagina">Cada espacio tiene su ritmo, en ATEMPO lo hacemos único.</p>
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-      <div class="pagina" style="z-index: 2;">
-        <div class="frente">
-          <img src="imgs/whasap/w4.jpeg" alt="Vestidor Cariló">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-
-      <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w3.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w2.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w5.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w7.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w8.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w9.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w10.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-            <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w11.jpeg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-                  <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w12.jpg" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-                        <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w13.png" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"><img src="imgs/dorso.jpeg" alt=""></div>
-      </div>
-                              <div class="pagina" style="z-index: 1;">
-        <div class="frente">
-          <img src="imgs/whasap/w14.png" alt="Muebles Living">
-
-        </div>
-        <div class="dorso"></div>
-      </div>
-      </div>
-       <div class="controles-libro">
-    <button class="btn-libro btn-prev" id="btnPrevLibro">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="btn-libro btn-next" id="btnNextLibro">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-
-    </div>
-
-  </section>
-
-  <section id="preguntas" class="seccion-preguntas reveal">
+  <!-- ===================== SOBRE ATEMPO ===================== -->
+  <section id="sobre-atempo" class="section section--cream">
     <div class="container">
-      <h2 class="text-center mb-5">Preguntas Frecuentes</h2>
-      
-      <div class="accordion accordion-flush" id="acordeonAtempo">
-        
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoUno">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoUno">
-              1. ¿Qué tipo de muebles hacen?
-            </button>
-          </h2>
-          <div id="colapsoUno" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              En Atempo diseñamos y fabricamos muebles de interior a medida, adaptados a cada espacio y necesidad. 
-              Trabajamos principalmente cocinas, placares, vestidores, muebles de guardado y amoblamientos integrales.
-            </div>
-          </div>
-        </div>
+      <div class="sobre__col-text">
+        <p class="eyebrow">Sobre Atempo</p>
+        <h2 class="section__title">Pasión por el diseño, compromiso con cada detalle.</h2>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoDos">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoDos">
-              2. ¿Hacen solo muebles o también diseño?
-            </button>
-          </h2>
-          <div id="colapsoDos" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              En Atempo pensamos el espacio completo, combinando funcionalidad, estética y materiales para lograr un resultado integrado con la arquitectura.
-            </div>
-          </div>
+        <div class="sobre__text">
+          <p>Somos un equipo especializado en el diseño, fabricación e instalación de mobiliario a medida.</p>
+          <p>Trabajamos junto a arquitectos, diseñadores y clientes particulares para transformar ideas en espacios funcionales, estéticos y duraderos.</p>
         </div>
+      </div>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoTres">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoTres">
-              3. ¿Cómo es el proceso de trabajo?
-            </button>
-          </h2>
-          <div id="colapsoTres" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Nuestro proceso incluye:
-              <ol class="mt-2">
-                <li>Relevamiento de medidas y escucha de necesidades.</li>
-                <li>Diseño del proyecto.</li>
-                <li>Fabricación en nuestra fábrica.</li>
-                <li>Instalación final en obra.</li>
-              </ol>
-              Acompañamos cada etapa para garantizar el resultado.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoCuatro">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoCuatro">
-              4. ¿Trabajan con arquitectos y constructoras?
-            </button>
-          </h2>
-          <div id="colapsoCuatro" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Sí. Trabajamos tanto con particulares como con estudios de arquitectura y constructoras, adaptándonos a cada tipo de proyecto.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoCinco">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoCinco">
-              5. ¿Qué necesito para pedir un presupuesto?
-            </button>
-          </h2>
-          <div id="colapsoCinco" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Podés escribirnos con:
-              <ul class="mt-2">
-                <li>Medidas aproximadas.</li>
-                <li>Fotos del espacio.</li>
-                <li>Ideas o referencias.</li>
-              </ul>
-              Y te asesoramos para avanzar.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoSeis">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoSeis">
-              6. ¿Cuánto tarda un proyecto?
-            </button>
-          </h2>
-          <div id="colapsoSeis" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Los tiempos varían según el proyecto, pero siempre contemplan: etapa de diseño, fabricación e instalación. Te damos tiempos estimados al momento de presupuestar.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoSiete">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoSiete">
-              7. ¿Qué materiales utilizan?
-            </button>
-          </h2>
-          <div id="colapsoSiete" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Trabajamos con materiales seleccionados según cada proyecto, priorizando durabilidad, estética y funcionalidad. 
-              Utilizamos materiales melamínicos de las marcas principales, enchapados y maderas naturales. Te asesoramos en la elección según el uso del espacio.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="encabezadoOcho">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colapsoOcho">
-              8. ¿En qué zonas trabajan?
-            </button>
-          </h2>
-          <div id="colapsoOcho" class="accordion-collapse collapse" data-bs-parent="#acordeonAtempo">
-            <div class="accordion-body">
-              Trabajamos principalmente en <strong>Pinamar, Cariló, Villarobles, Costa Esmeralda, Madariaga y alrededores</strong>, acompañando proyectos en toda la zona. 
-              Que la zona no sea un impedimento, escribinos y ajustamos las posibilidades.
-            </div>
-          </div>
-        </div>
-
+      <div class="sobre__img-wrap">
+        <img src="imgs/meto1.jpg" alt="Mueble de cocina fabricado por Atempo" class="sobre__img">
       </div>
     </div>
   </section>
 
-  <footer id="contacto" class="pie-pagina">
-    <div class="contenedor-pie">
-      <div class="redes-pie">
-        <a href="https://facebook.com/" target="_blank" class="enlace-redes">
-          <i class="fab fa-facebook-square"></i>
-          <span>Atempo</span>
-        </a>
-        <a href="https://instagram.com/" target="_blank" class="enlace-redes">
-          <i class="fab fa-instagram"></i>
-          <span>Atempo</span>
-        </a>
-        <a href="mailto:example@gmail.com" class="enlace-redes">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
-        <a href="mailto:example@gmail.com" class="enlace-redes">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
-        <a href="mailto:example@gmail.com" class="enlace-redes">
-          <i class="far fa-envelope"></i>
-          <span>example@gmail.com</span>
-        </a>
-      </div>
-      <div class="ubicacion-pie">
-        <div class="titulo-ubicacion">Ubicación:</div>
-        <div class="direccion-ubicacion">Av. La direccion</div>
-        <div class="mapa-ubicacion">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d562.2399434038517!2d-56.915740701536215!3d-37.14058501085831!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1756006992583!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- ===================== CATÁLOGO ===================== -->
+  <section id="catalogo" class="section section--cream">
+    <div class="container container--center">
+      <p class="eyebrow">Catálogo</p>
+      <h2 class="section__title section__title--center">Soluciones a medida para cada espacio.</h2>
+    </div>
+
+    <div class="carousel" id="catalogoCarousel">
+      <ul class="carousel__track">
+        <li class="carousel__item">
+          <a href="#contacto" class="card-catalogo">
+            <img src="imgs/ini2.jpg" alt="Cocinas a medida Atempo" class="card-catalogo__img">
+            <span class="card-catalogo__overlay"></span>
+            <span class="card-catalogo__label">Cocinas</span>
+          </a>
+        </li>
+        <li class="carousel__item">
+          <a href="#contacto" class="card-catalogo">
+            <img src="imgs/ini5.jpg" alt="Vestidores a medida Atempo" class="card-catalogo__img">
+            <span class="card-catalogo__overlay"></span>
+            <span class="card-catalogo__label">Vestidores</span>
+          </a>
+        </li>
+        <li class="carousel__item">
+          <a href="#contacto" class="card-catalogo">
+            <img src="imgs/define1.jpg" alt="Muebles de baño a medida Atempo" class="card-catalogo__img">
+            <span class="card-catalogo__overlay"></span>
+            <span class="card-catalogo__label">Baños</span>
+          </a>
+        </li>
+        <li class="carousel__item">
+          <a href="#contacto" class="card-catalogo">
+            <img src="imgs/ini4.jpg" alt="Muebles de TV a medida Atempo" class="card-catalogo__img">
+            <span class="card-catalogo__overlay"></span>
+            <span class="card-catalogo__label">Muebles TV</span>
+          </a>
+        </li>
+        <li class="carousel__item">
+          <a href="#contacto" class="card-catalogo">
+            <img src="imgs/idea2.jpg" alt="Oficinas a medida Atempo" class="card-catalogo__img">
+            <span class="card-catalogo__overlay"></span>
+            <span class="card-catalogo__label">Oficinas</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="swipe-hint">Deslizá para ver más <i class="fa-solid fa-arrow-right"></i></p>
+  </section>
+
+  <!-- ===================== PROYECTOS DESTACADOS ===================== -->
+  <section id="proyectos" class="section section--offwhite">
+    <div class="container">
+      <div class="proyectos__head">
+        <div>
+          <p class="eyebrow">Proyectos destacados</p>
+          <h2 class="section__title">Espacios reales, funcionales y estéticos.</h2>
+        </div>
+
+        <div class="carousel-nav" id="proyectosNav">
+          <button type="button" class="carousel-nav__btn" id="proyectosPrev" aria-label="Proyecto anterior" disabled>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button type="button" class="carousel-nav__btn carousel-nav__btn--active" id="proyectosNext" aria-label="Proyecto siguiente">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>
+
+    <div class="carousel carousel--proyectos" id="proyectosCarousel">
+      <ul class="carousel__track" id="proyectosTrack">
+        <li class="carousel__item">
+          <img src="imgs/define1.jpg" alt="Proyecto Atempo - escalera y revestimiento en madera" class="card-proyecto__img">
+        </li>
+        <li class="carousel__item">
+          <img src="imgs/define3.jpg" alt="Proyecto Atempo - isla de cocina" class="card-proyecto__img">
+        </li>
+        <li class="carousel__item">
+          <img src="imgs/idea1.jpeg" alt="Proyecto Atempo - cocina integral" class="card-proyecto__img">
+        </li>
+        <li class="carousel__item">
+          <img src="imgs/idea2.jpg" alt="Proyecto Atempo - living integral" class="card-proyecto__img">
+        </li>
+        <li class="carousel__item">
+          <img src="imgs/define2.jpeg" alt="Proyecto Atempo - placard a medida" class="card-proyecto__img">
+        </li>
+        <li class="carousel__item">
+          <img src="imgs/define1.jpg" alt="Proyecto Atempo - oficina a medida" class="card-proyecto__img">
+        </li>
+      </ul>
+    </div>
+
+    <div class="dots" id="proyectosDots">
+      <span class="dots__dot dots__dot--active"></span>
+      <span class="dots__dot"></span>
+      <span class="dots__dot"></span>
+      <span class="dots__dot"></span>
+      <span class="dots__dot"></span>
+      <span class="dots__dot"></span>
+    </div>
+  </section>
+
+  <!-- ===================== DÓNDE ESTAMOS ===================== -->
+  <section id="donde-estamos" class="section section--white">
+    <div class="container">
+      <div class="donde__col-text">
+        <p class="eyebrow">Dónde estamos</p>
+        <h2 class="section__title">Visitá nuestro taller y conocé nuestro trabajo.</h2>
+
+        <ul class="contact-list">
+          <li class="contact-list__item">
+            <i class="fa-solid fa-location-dot contact-list__icon"></i>
+            <span>Av. Dirección 1234<br>Pinamar, Buenos Aires</span>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-brands fa-whatsapp contact-list__icon"></i>
+            <span>+54 2254 00-0000</span>
+          </li>
+          <li class="contact-list__item">
+            <i class="fa-regular fa-envelope contact-list__icon"></i>
+            <span>info@atempo.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d562.2399434038517!2d-56.915740701536215!3d-37.14058501085831!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1756006992583!5m2!1sen!2sus"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación Atempo en el mapa"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL / CONTACTO ===================== -->
+  <section id="contacto" class="cta">
+    <img src="imgs/meto2.jpg" alt="Living con mobiliario a medida Atempo" class="cta__img">
+    <div class="cta__overlay"></div>
+
+    <div class="cta__content">
+      <div class="cta__col-text">
+        <h2 class="cta__title">¿Tenés un proyecto en mente?</h2>
+        <p class="cta__subtitle">Hablemos y hagámoslo realidad.</p>
+      </div>
+
+      <a href="https://wa.me/5492254000000?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto" target="_blank" rel="noopener" class="btn btn--white">
+        Escribinos por WhatsApp <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p class="footer__logo">ATEMPO</p>
+    <p class="footer__tagline">Mobiliario a medida · Pinamar, Buenos Aires</p>
+    <p class="footer__copy">© 2026 Atempo. Todos los derechos reservados.</p>
   </footer>
 
-  <a href="https://wa.me/5491122334455?text=Hola%20quiero%20consultar" target="_blank" class="boton-whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/esto.js"></script>
-  
+
+  <script src="js/main.js"></script>
 </body>
 </html>

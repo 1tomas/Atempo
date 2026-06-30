@@ -1,0 +1,926 @@
+/* ===================================================================
+   ATEMPO — Mobiliario a medida
+   CSS Mobile First
+   =================================================================== */
+
+/* -------------------- 1. VARIABLES (DESIGN TOKENS) -------------------- */
+:root {
+  /* Colores de marca */
+  --color-negro:        #1C1B19; /* negro cálido - títulos, footer, botón oscuro */
+  --color-texto-cuerpo:  #3A372F; /* gris oscuro cálido - párrafos */
+  --color-eyebrow:       #6E6960; /* gris oliva - labels (SOBRE ATEMPO, CATÁLOGO...) */
+  --color-blanco:        #FFFFFF;
+
+  /* Fondos de sección */
+  --bg-crema:    #EAE7E0; /* Sobre Atempo / Catálogo */
+  --bg-offwhite: #F4F2ED; /* Proyectos destacados */
+  --bg-blanco:   #FFFFFF; /* Dónde estamos */
+  --bg-negro:    #1C1B19; /* Footer */
+
+  /* Tipografía */
+  --font-principal: 'Chivo', sans-serif;
+
+  /* Radios y sombras */
+  --radio-img:  4px;
+  --radio-btn:  2px;
+
+  /* Layout */
+  --container-padding: 24px;
+  --max-width: 1280px;
+}
+
+/* -------------------- 2. RESET BÁSICO -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-principal);
+  color: var(--color-texto-cuerpo);
+  background: var(--color-blanco);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.container--center {
+  text-align: center;
+}
+
+/* -------------------- 3. UTILIDADES -------------------- */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+  margin-bottom: 16px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section--cream    { background: var(--bg-crema); }
+.section--offwhite { background: var(--bg-offwhite); }
+.section--white    { background: var(--bg-blanco); }
+
+.section__title {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--color-negro);
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.section__title--center {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* -------------------- 4. BOTONES -------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 28px;
+  font-family: var(--font-principal);
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: var(--radio-btn);
+  text-align: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--dark {
+  background: var(--color-negro);
+  color: var(--color-blanco);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-blanco);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn--white {
+  background: var(--color-blanco);
+  color: var(--color-negro);
+}
+
+/* -------------------- 5. HEADER / NAV -------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-blanco);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--container-padding);
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  
+}
+  .header__logo-img {
+display: none;
+}
+
+
+.header__logo-text {
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--color-negro);
+}
+
+.header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.header__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background: var(--color-negro);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Estado abierto: hamburguesa -> X */
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 78%;
+  max-width: 340px;
+  background: var(--color-blanco);
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  padding: 100px 32px 32px;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.nav.is-open {
+  transform: translateX(0);
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.nav__link {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-negro);
+}
+
+.nav__link--cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 24px;
+  background: var(--color-negro);
+  color: var(--color-blanco);
+  border-radius: var(--radio-btn);
+  text-align: center;
+}
+
+/* Overlay detrás del menú abierto */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -------------------- 6. HERO -------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--container-padding) 48px;
+  color: var(--color-blanco);
+}
+
+.hero__title {
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.45;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* -------------------- 7. SOBRE ATEMPO -------------------- */
+.sobre__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.sobre__img-wrap {
+  border-radius: var(--radio-img);
+  overflow: hidden;
+}
+
+.sobre__img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+/* -------------------- 8. CARRUSELES (scroll táctil con snap) -------------------- */
+.carousel {
+  margin-top: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track {
+  display: flex;
+  gap: 16px;
+  padding: 0 var(--container-padding);
+  width: max-content;
+}
+
+.carousel__item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Catálogo */
+#catalogoCarousel .carousel__item {
+  width: 78%;
+  max-width: 320px;
+}
+
+.card-catalogo {
+  position: relative;
+  display: block;
+  border-radius: var(--radio-img);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.card-catalogo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-catalogo__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.card-catalogo__label {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-blanco);
+}
+
+.swipe-hint {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+}
+
+.swipe-hint i {
+  margin-left: 4px;
+}
+
+/* Proyectos */
+#proyectosCarousel .carousel__item {
+  width: 27%;
+}
+
+.card-proyecto__img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radio-img);
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.dots__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D8D4CB;
+  transition: all 0.25s ease;
+}
+
+.dots__dot--active {
+  width: 22px;
+  border-radius: 4px;
+  background: var(--color-negro);
+}
+
+/* -------------------- 9. DÓNDE ESTAMOS -------------------- */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 28px 0 32px;
+}
+
+.contact-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 17px;
+  color: var(--color-texto-cuerpo);
+}
+
+.contact-list__icon {
+  width: 20px;
+  margin-top: 3px;
+  font-size: 18px;
+  color: var(--color-negro);
+}
+
+.map-wrap {
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radio-img);
+  overflow: hidden;
+}
+
+/* -------------------- 10. CTA FINAL -------------------- */
+.cta {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.cta__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 27, 25, 0.1) 0%,
+    rgba(28, 27, 25, 0.78) 70%,
+    rgba(28, 27, 25, 0.9) 100%
+  );
+}
+
+.cta__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 48px var(--container-padding) 56px;
+  color: var(--color-blanco);
+}
+
+.cta__title {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.cta__subtitle {
+  font-size: 16px;
+  margin-bottom: 28px;
+  opacity: 0.92;
+}
+
+/* -------------------- 11. FOOTER -------------------- */
+.footer {
+  background: var(--bg-negro);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 48px var(--container-padding) 36px;
+}
+
+.footer__logo {
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+
+.footer__tagline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 6px;
+}
+
+.footer__copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* -------------------- 12. WHATSAPP FLOTANTE -------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  z-index: 900;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* ===================================================================
+   13. CARRUSEL NAV (flechas) — usadas en desktop, en Proyectos destacados
+   =================================================================== */
+.proyectos__head {
+  margin-bottom: 0;
+}
+
+.carousel-nav {
+  display: none; /* en mobile no se muestran: solo scroll táctil */
+}
+
+.carousel-nav__btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid #E3E0D8;
+  background: transparent;
+  color: #D8D4CB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-nav__btn:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.carousel-nav__btn--active {
+  border-color: var(--color-negro);
+  color: var(--color-negro);
+}
+
+.carousel-nav__btn:not(:disabled):hover {
+  background: var(--color-negro);
+  color: var(--color-blanco);
+}
+
+/* ===================================================================
+   14. DESKTOP MEDIA QUERIES (min-width: 1024px)
+   =================================================================== */
+
+@media (min-width: 1024px) {
+
+  :root {
+    --container-padding: 40px;
+  }
+
+  .section {
+    padding: 110px 0;
+  }
+
+  .section__title {
+    font-size: 44px;
+  }
+
+  /* --- 0. HEADER / NAV DESKTOP --- */
+  .header__toggle {
+    display: none; /* el botón hamburguesa solo existe en mobile */
+  }
+
+
+.header__logo-img {
+  display: block;
+  height: 90px;
+  width: auto;
+  padding-left: 50px;
+}
+.header__logo-text{
+  display: none;
+}
+  .nav {
+    position: static;
+    height: auto;
+    width: auto;
+    max-width: none;
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav__link {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .nav__link--cta {
+    margin-top: 0;
+    padding: 12px 24px;
+  }
+
+  .nav-overlay {
+    display: none; /* en desktop el menú siempre está visible, no hace falta overlay */
+  }
+
+  /* --- 1. HERO --- */
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero__content {
+    padding: 0 var(--container-padding) 100px;
+  }
+
+  .hero__title {
+    font-size: 56px;
+    max-width: 760px;
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    max-width: 480px;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    margin-top: 32px;
+  }
+
+  .hero__actions .btn {
+    width: auto;
+    padding: 18px 32px;
+  }
+
+  /* --- 2. SOBRE ATEMPO (flex 2 columnas) --- */
+  #sobre-atempo .container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  #sobre-atempo .sobre__col-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #sobre-atempo .sobre__img-wrap {
+    flex: 1;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  #sobre-atempo .eyebrow,
+  #sobre-atempo .section__title {
+    text-align: left;
+  }
+
+  #sobre-atempo .sobre__text {
+    margin-bottom: 0;
+    font-size: 17px;
+  }
+
+  #sobre-atempo .sobre__img {
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+  }
+
+  /* --- 3. CATÁLOGO (flex, tarjetas pegadas sin gap) --- */
+  #catalogoCarousel {
+    overflow: visible;
+  }
+
+  #catalogoCarousel .carousel__track {
+    display: flex;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  #catalogoCarousel .carousel__item {
+    flex: 1;
+    width: auto;
+    max-width: none;
+  }
+
+  .card-catalogo {
+    border-radius: 0;
+    aspect-ratio: auto;
+    height: 420px;
+  }
+
+  .swipe-hint {
+    display: none; /* el hint de "deslizar" solo aplica al scroll táctil mobile */
+  }
+
+
+/* ===================================================================
+     4. PROYECTOS DESTACADOS - PAGINACIÓN ESTRICTA (Desktop)
+     =================================================================== */
+  
+  /* Cabecera: Título a la izquierda, botones a la derecha */
+
+  .proyectos__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .proyectos__head .section__title {
+    margin-bottom: 0; /* Anula el margen para alinear con los botones */
+  }
+
+  /* Contenedor de las flechas */
+  .carousel-nav {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Estética de los botones de navegación */
+  .carousel-nav__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-eyebrow);
+    background: transparent;
+    color: var(--color-negro);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  /* Botón deshabilitado (grisecito) */
+  .carousel-nav__btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  /* Botón habilitado (negro) */
+  .carousel-nav__btn--active {
+    background: var(--color-negro);
+    color: var(--color-blanco);
+    border-color: var(--color-negro);
+  }
+
+  /* Carrusel ajustado matemáticamente al contenedor */
+  #proyectosCarousel {
+    overflow: hidden; 
+    max-width: calc(var(--max-width) - (var(--container-padding) * 2));
+    margin: 0 auto;
+  }
+
+  /* La cinta mágica que se desliza */
+  #proyectosCarousel .carousel__track {
+    display: flex;
+    gap: 24px;
+    padding: 0;
+    width: 100%; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Cada imagen ocupa su tercio exacto */
+  #proyectosCarousel .carousel__item {
+    flex: 0 0 calc((100% - 48px) / 3);
+  }
+
+  .card-proyecto__img {
+    height: 380px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radio-img);
+  }
+
+  /* Ocultamos los puntitos de mobile */
+  .dots {
+    display: none;
+  }
+ 
+
+  /* --- 5. DÓNDE ESTAMOS (flex 2 columnas) --- */
+  #donde-estamos .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
+  #donde-estamos .donde__col-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #donde-estamos .map-wrap {
+    flex: 1;
+    min-width: 0;
+    height: 420px;
+  }
+
+  #donde-estamos .eyebrow,
+  #donde-estamos .section__title {
+    text-align: left;
+  }
+
+  /* --- 6. CTA FINAL (flex, texto izq / botón der) --- */
+  .cta {
+    min-height: 420px;
+  }
+
+  .cta__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 100px;
+    height: 100%;
+  }
+
+  .cta__title {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .cta__subtitle {
+    margin-bottom: 0;
+  }
+
+  .cta__content .btn {
+    width: auto;
+    flex-shrink: 0;
+    padding: 18px 32px;
+  }
+
+  /* --- 7. FOOTER --- */
+  .footer {
+    padding: 56px var(--container-padding) 40px;
+  }
+
+}
