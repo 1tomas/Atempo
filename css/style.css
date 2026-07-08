@@ -139,8 +139,8 @@ button {
 }
 
 .btn--outline {
-  background: transparent;
-  color: var(--color-blanco);
+  background: var(--color-blanco);
+  color: var(--color-negro);
   border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
 
@@ -273,13 +273,14 @@ display:none;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+
 }
 
 .hero__img {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 150%;
+  height: 120%;
   object-fit: cover;
 }
 
@@ -292,6 +293,7 @@ display:none;
     rgba(0, 0, 0, 0.15) 45%,
     rgba(0, 0, 0, 0.65) 100%
   );
+
 }
 
 .hero__content {
@@ -325,6 +327,20 @@ display:none;
 }
 
 /* -------------------- 7. SOBRE ATEMPO -------------------- */
+#sobre-atempo {
+  /* El linear-gradient actúa como la "sombra blanca" sobre la imagen */
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.933), /* 85% de opacidad blanca arriba */
+      rgba(255, 255, 255, 0.933)  /* 85% de opacidad blanca abajo */
+    ), 
+    url('../imgs/madera.jpeg'); /* Reemplazá esto con el nombre de tu imagen */
+  
+  background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita como mosaico */
+}
+
+/* Acá sigue el código que ya tenías... */
 .sobre__text {
   display: flex;
   flex-direction: column;
@@ -423,14 +439,11 @@ display:none;
 }
 
 /* Proyectos */
-#proyectosCarousel .carousel__item {
-  width: 27%;
-}
 
 .card-proyecto__img {
   width: 100%;
-  height: 380px;
-  object-fit: cover;
+  height: 520px; 
+  object-fit: contain; /* Cambiamos cover por contain */
   border-radius: var(--radio-img);
 }
 
