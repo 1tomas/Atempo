@@ -170,18 +170,14 @@ button {
 .header__logo {
   display: flex;
   align-items: center;
-  
+  height: 80px;
+  width: 80px;
 }
-  .header__logo-img {
-display: none;
-}
+
 
 
 .header__logo-text {
-  font-weight: 900;
-  font-size: 18px;
-  letter-spacing: 0.1em;
-  color: var(--color-negro);
+display:none;
 }
 
 .header__toggle {
@@ -377,6 +373,7 @@ display: none;
 /* Catálogo */
 #catalogoCarousel .carousel__item {
   width: 78%;
+
   max-width: 320px;
 
 }
