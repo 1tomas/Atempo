@@ -627,16 +627,13 @@ display:none;
     display: none; /* el botón hamburguesa solo existe en mobile */
   }
 
+.header__logo {
+  display: flex;
+  align-items: center;
 
-.header__logo-img {
-  display: block;
-  height: 90px;
-  width: auto;
-  padding-left: 50px;
 }
-.header__logo-text{
-  display: none;
-}
+
+
   .nav {
     position: static;
     height: auto;
